@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="description" content="在 LaTeX 中写排序宏命令对 TOKEN 排序">
+    
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>在 LaTeX 中写排序宏命令对 TOKEN 排序</title>
+    <!-- font -->
+    
+<link rel="stylesheet" href="/css/fonts.css">
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+    
+      <script data-ad-client="ca-pub-2997183197565745" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Johann's Blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/post/cuda_on_arm/1.2.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/post/writing/arxiv-upload.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&text=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&is_video=false&description=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在 LaTeX 中写排序宏命令对 TOKEN 排序&body=Check out this article: https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&name=在 LaTeX 中写排序宏命令对 TOKEN 排序&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&t=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">原理分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E5%8F%A3-sort"><span class="toc-number">3.1.</span> <span class="toc-text">入口 \sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Token-sort-begin"><span class="toc-number">3.2.</span> <span class="toc-text">Token \sort@begin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Token-sort-go"><span class="toc-number">3.3.</span> <span class="toc-text">Token \sort@go</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Token-sort-output"><span class="toc-number">3.4.</span> <span class="toc-text">Token \sort@output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">5.</span> <span class="toc-text">Reference</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%9C%80%E5%90%8E%E5%9C%A8%E8%AE%BA%E6%96%87%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">我最后在论文中使用的代码</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在 LaTeX 中写排序宏命令对 TOKEN 排序
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Johann Li</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-08-25T11:08:05.000Z" itemprop="datePublished">2020-08-25</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/pop-sci/">pop-sci</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/cn/" rel="tag">cn</a>, <a class="tag-link-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a>, <a class="tag-link-link" href="/tags/%E7%BC%96%E7%A0%81/" rel="tag">编码</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  
+  
+  <script> const _col_hid_pre_state = undefined; </script>
+
+
+
+  <div class="content" itemprop="articleBody">
+    <p>不管你信不信， LaTeX 的宏系统是可以用来排序的。这一篇博文会讲述如何在 LaTeX 里面来进行对 <code>token</code> 的排序。</p>
+<h2 id="简介">简介</h2>
+<p>起因是想在一个论文中对交叉引用的某个东西排序。然后就通过搜索引擎找到了这个在 Stack Exchange 上的 <a href="#cite1">回答</a>。最后根据这个回答改了我宏包中的一些代码，使得交叉引用某个东西的时候，会根据序号进行排序。</p>
+<h2 id="知识点">知识点</h2>
+<p>这个<a href="#cite1">回答</a>中对于排序的设计完全是基于 LaTeX/TeX 宏系统的。但是我目前对于这个宏系统的了解也不多。尽管如此，我还是会尽量解释清楚的。</p>
+<p>最重要的是类似递归的思想，毕竟是宏系统，通过类似递归的思想，让待排序的 Token 在展开的时候在不同的“队列”中“移动”，然后反复比较一遍遍挑出最小的（或者最大的，这个看根据比较函数确定）。</p>
+<h2 id="原理分析">原理分析</h2>
+<p>首先先贴一下<a href="#cite1">回答</a>中作者贴上去的部分代码（排序的核心部分）。如果实在看不懂的话，先看我的总结部分的内容，然后再看我的分析，可能就清除一下了。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% #1 - comparator</span></span><br><span class="line"><span class="comment">% #2 - token list to sort</span></span><br><span class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">sort</span><span class="string">[2]</span><span class="string">&#123;%</span></span></span><br><span class="line"><span class="tag"><span class="string">    \ifstrempty&#123;#2&#125;</span></span></span><br><span class="line">    &#123;&#125;<span class="comment">% else</span></span><br><span class="line">    &#123;<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">sort</span></span>@begin#1&#123;&#125;#2<span class="tag">\<span class="name">sort</span></span>@s<span class="tag">\<span class="name">sort</span></span>@begin</span><br><span class="line">    &#125;<span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% helpers</span></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">sort</span></span>@s&#123;<span class="tag">\<span class="name">sort</span></span>@s&#125;</span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">ifsort</span></span>@s#1&#123;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">ifx</span></span><span class="tag">\<span class="name">sort</span></span>@s#1<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">@</span></span>firstoftwo</span><br><span class="line">    <span class="tag">\<span class="name">else</span></span></span><br><span class="line">        <span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">@</span></span>secondoftwo</span><br><span class="line">    <span class="tag">\<span class="name">fi</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% #1 - comparator</span></span><br><span class="line"><span class="comment">% #2 - tokens processed so far</span></span><br><span class="line"><span class="comment">% #3 - smallest token so far</span></span><br><span class="line"><span class="comment">% #4 - rest of the list</span></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">sort</span></span>@begin#1#2#3#4<span class="tag">\<span class="name">sort</span></span>@begin&#123;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">ifsort</span></span>@s&#123;#4&#125;</span><br><span class="line">    &#123;<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">sortend</span><span class="string">&#123;#3&#125;</span></span><span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">sort</span></span>#1&#123;#2&#125;<span class="comment">%</span></span><br><span class="line">    &#125;<span class="comment">% else</span></span><br><span class="line">    &#123;<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">sort</span></span>@go#1&#123;#2&#125;&#123;#3&#125;#4<span class="tag">\<span class="name">sort</span></span>@go</span><br><span class="line">    &#125;<span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% #1 - comparator</span></span><br><span class="line"><span class="comment">% #2 - tokens processed so far</span></span><br><span class="line"><span class="comment">% #3 - smallest token so far</span></span><br><span class="line"><span class="comment">% #4 - token under consideration</span></span><br><span class="line"><span class="comment">% #5 - rest of the list</span></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">sort</span></span>@go#1#2#3#4#5<span class="tag">\<span class="name">sort</span></span>@go&#123;<span class="comment">%</span></span><br><span class="line">        #1&#123;#3&#125;&#123;#4&#125;&#123;<span class="tag">\<span class="name">sort</span></span>@output#1&#123;#2&#125;&#123;#5&#125;&#125;<span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% #1 - comparator</span></span><br><span class="line"><span class="comment">% #2 - tokens processed so far</span></span><br><span class="line"><span class="comment">% #3 - rest of the list</span></span><br><span class="line"><span class="comment">% #4 - smaller of the two tokens</span></span><br><span class="line"><span class="comment">% #5 - larger of the two tokens</span></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">sort</span></span>@output#1#2#3#4#5&#123;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">ifsort</span></span>@s&#123;#3&#125;</span><br><span class="line">    &#123;<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">sortoutput</span><span class="string">&#123;#4&#125;</span></span><span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">sort</span></span>#1&#123;#2&#123;#5&#125;&#125;<span class="comment">%</span></span><br><span class="line">    &#125;<span class="comment">% else</span></span><br><span class="line">    &#123;<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">sort</span></span>@begin#1&#123;#2&#123;#5&#125;&#125;&#123;#4&#125;#3<span class="tag">\<span class="name">sort</span></span>@begin</span><br><span class="line">    &#125;<span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">sort</span></span>@numcmp#1#2#3&#123;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">ifnumcomp</span><span class="string">&#123;#1&#125;</span></span>&lt;&#123;#2&#125;</span><br><span class="line">    &#123;#3&#123;#1&#125;&#123;#2&#125;&#125;<span class="comment">% else</span></span><br><span class="line">    &#123;#3&#123;#2&#125;&#123;#1&#125;&#125;<span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">newcommand*</span></span><span class="tag">\<span class="name">sortoutput</span><span class="string">[1]</span><span class="string">&#123;#1, &#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">newcommand*</span></span><span class="tag">\<span class="name">sortend</span><span class="string">[1]</span><span class="string">&#123;#1.&#125;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="入口-sort">入口 <code>\sort</code></h3>
+<p>首先是入口函数 <code>\sort</code>，入口函数接收两个参数： 一个是“比较”的宏命令，另一个是待排序的 token “们”。然后输入的参数被传送到了另一个 宏命令 <code>\sort@begin</code> 中。</p>
+<p>要说明的是 <code>\sort@begin</code> 接收 “5” 个 token 作为输入分别是输入参数 <code>#1</code>，空的 token <code>&#123;&#125;</code>，输入参数 <code>#2</code>，自定义的“终止” token <code>\sort@s</code>，与 <code>\sort@begin</code> 宏命令自己。</p>
+<h3 id="Token-sort-begin">Token <code>\sort@begin</code></h3>
+<p><code>\sort@begin</code> 宏命令只做了两件事情，判断了一下第四个输入的参数是不是 <code>\sort@s</code>，宏命令 <code>\ifsort@s</code> 就是用来判断的。</p>
+<p>如果第四个参数是 <code>\sort@s</code> 的时候，就意味着排序已经执行完了，会执行 <code>\sortend</code> 与 <code>\sort</code> 来“收尾”。但是实际上来说 再次展开 <code>\sort</code> 是开启了对没有排序的内容进行处理，但是你懂的。而<code>\sortend</code> 是一个自定义的宏命令，只是用来处理排序的结果的，直接写成 <code>#3</code> 也是可以的。</p>
+<p>如果第四个参数不是 <code>\sort@s</code> 的话，则是会去展开 <code>\sort@go</code> 宏命令。</p>
+<h3 id="Token-sort-go">Token <code>\sort@go</code></h3>
+<p>这个 Token 是实际负责作比较的， <code>\sort@go</code> Token一共接收三个，不，准确是六个输入的的 token。第一个输入的 Token是负责比较的。第二个 Token 是可以理解为一种列表，是所有处理过的要排序 Token。</p>
+<p>负责比较的 Token 定义应该是类似 <code>\sort@numcmp</code> 定义的。这个 Token 要负责解决真正的比较过程（比较 <code>#3</code> 与 <code>#4</code> 这两个输入） ，然后处理 <code>#3</code>、<code>#4</code> 与 <code>&#123;\sort@output#1&#123;#2&#125;&#123;#5&#125;&#125;</code> 这三个 Token 之间的关系：是展开 <code>\sort@output#1&#123;#2&#125;&#123;#5&#123;#3&#125;&#123;#4&#125;</code> 还是展开 <code>\sort@output#1&#123;#2&#125;&#123;#5&#125;&#123;#4&#125;&#123;#3&#125;</code>。</p>
+<h3 id="Token-sort-output">Token <code>\sort@output</code></h3>
+<p>这个 Token 是负责输出的，因为 LaTeX 本身是一种宏系统，排版用的，所以这个代码就是为了解决输出内容排版的，所以就是为了输出。</p>
+<p>输出的条件是 <code>#3</code> 是否是 Token <code>\sort@s</code>，如果是的话，那就意味着一次扫描已经完成了，从所有要排序的 Token 中 找出最小的（或者是最大的，这个比较由 <code>#1</code> 执行），然后继续在已经处理过的 Token 中找出下一个最小的。</p>
+<p>如果不是 Token <code>\sort@s</code>，那就继续比较后面的没有比较的 Token。</p>
+<h2 id="总结">总结</h2>
+<p>如果你看完了分析，尤其是 Token <code>\sort@output</code> 的，你是不是觉得有一种似曾相识的感觉？？对！这个算法就是利用 LaTeX 宏系统整出来的选择排序。 从 <code>\sort@begin</code> 到 <code>\sort@output</code>的反复的过程是在所有待排序的 Token 中找出来最小的一个，然后输出。剩下的 Token 就继续传递给 <code>\sort</code> 从头再来一遍排序。</p>
+<h2 id="Reference">Reference</h2>
+<p><a id='cite1'>[1]</a>	programming - How to sort an alphanumeric list - TeX - LaTeX Stack Exchange. Stackexchange. Retrieved July 30, 2020 from <a target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/6988/how-to-sort-an-alphanumeric-list/7095#7095">https://tex.stackexchange.com/questions/6988/how-to-sort-an-alphanumeric-list/7095#7095</a></p>
+<h2 id="我最后在论文中使用的代码">我最后在论文中使用的代码</h2>
+<p>下面是我在论文中最终使用的代码。和原始的代码相比，除了 Token 的名字不同还没注释外，我这个代码还有一个特别之处，我的待排序的 token 是用逗号分割的 label，然后比较的结果是按照 label 对应的计数器的值排序的。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">RequirePackage</span><span class="string">&#123;etoolbox&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@sort#1#2&#123;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">data</span></span>@IfEmpty&#123;#2&#125;<span class="tag">\<span class="name">relax</span></span><span class="tag">\<span class="name">else</span></span><span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">data</span></span>@sort@begin#1&#123;&#125;#2,<span class="tag">\<span class="name">data</span></span>@sort@s<span class="tag">\<span class="name">data</span></span>@sort@begin<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">fi</span></span><span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@sort@s&#123;<span class="tag">\<span class="name">data</span></span>@sort@s&#125;</span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@ifsort@s#1&#123;<span class="tag">\<span class="name">ifx</span></span><span class="tag">\<span class="name">data</span></span>@sort@s#1&#125;</span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@show#1#2&#123;<span class="tag">\<span class="name">data</span></span>@IfEmpty&#123;#1&#125;<span class="tag">\<span class="name">ref</span><span class="string">&#123;#2&#125;</span></span><span class="tag">\<span class="name">else</span></span><span class="tag">\<span class="name">ref</span><span class="string">&#123;#2&#125;</span></span>,~<span class="tag">\<span class="name">fi</span></span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@sort@begin#1#2#3,#4<span class="tag">\<span class="name">data</span></span>@sort@begin&#123;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">data</span></span>@ifsort@s&#123;#4&#125;<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">data</span></span>@show&#123;#2&#125;&#123;#3&#125;<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">data</span></span>@sort#1&#123;#2&#125;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">else</span></span><span class="tag">\<span class="name">data</span></span>@sort@go#1&#123;#2&#125;&#123;#3&#125;#4<span class="tag">\<span class="name">data</span></span>@sort@go<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">fi</span></span><span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@sort@go#1#2#3#4,#5<span class="tag">\<span class="name">data</span></span>@sort@go&#123;<span class="comment">%</span></span><br><span class="line">    #1&#123;#3&#125;&#123;#4&#125;&#123;<span class="tag">\<span class="name">data</span></span>@sort@end#1&#123;#2&#125;&#123;#5&#125;&#125;<span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@sort@end#1#2#3#4#5&#123;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">data</span></span>@IfEmpty&#123;#2&#125;<span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">data</span></span>@sort@begin#1&#123;#5&#125;&#123;#4&#125;,#3<span class="tag">\<span class="name">data</span></span>@sort@begin<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">else</span></span><span class="comment">%</span></span><br><span class="line">        <span class="tag">\<span class="name">data</span></span>@sort@begin#1&#123;#2,#5&#125;&#123;#4&#125;,#3<span class="tag">\<span class="name">data</span></span>@sort@begin<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">fi</span></span><span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@num@inner#1#2#3&#123;<span class="tag">\<span class="name">ifx</span></span>#1<span class="tag">\<span class="name">relax</span></span> 0<span class="tag">\<span class="name">else</span></span><span class="tag">\<span class="name">expandafter</span></span>#2#1<span class="tag">\<span class="name">fi</span></span>&#125;</span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@num#1&#123;<span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">data</span></span>@num@inner<span class="tag">\<span class="name">csname</span></span> r@#1<span class="tag">\<span class="name">endcsname</span></span><span class="tag">\<span class="name">@</span></span>firstoffive&#123;#1&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">data</span></span>@sort@numlt#1#2#3&#123;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">ifnum</span></span><span class="tag">\<span class="name">data</span></span>@num&#123;#1&#125;&lt;<span class="tag">\<span class="name">data</span></span>@num&#123;#2&#125;<span class="comment">%</span></span><br><span class="line">        #3&#123;#1&#125;&#123;#2&#125;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">else</span></span><span class="comment">%</span></span><br><span class="line">        #3&#123;#2&#125;&#123;#1&#125;<span class="comment">%</span></span><br><span class="line">    <span class="tag">\<span class="name">fi</span></span><span class="comment">%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">newcommand</span><span class="string">&#123;\idata&#125;</span><span class="string">[1]</span><span class="string">&#123;%</span></span></span><br><span class="line"><span class="tag"><span class="string">    \data@begin\data@sort\data@sort@numlt&#123;#1&#125;</span></span><span class="tag">\<span class="name">data</span></span>@end<span class="comment">%</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </div>
+
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">原理分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E5%8F%A3-sort"><span class="toc-number">3.1.</span> <span class="toc-text">入口 \sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Token-sort-begin"><span class="toc-number">3.2.</span> <span class="toc-text">Token \sort@begin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Token-sort-go"><span class="toc-number">3.3.</span> <span class="toc-text">Token \sort@go</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Token-sort-output"><span class="toc-number">3.4.</span> <span class="toc-text">Token \sort@output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">5.</span> <span class="toc-text">Reference</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%9C%80%E5%90%8E%E5%9C%A8%E8%AE%BA%E6%96%87%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">我最后在论文中使用的代码</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&text=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&is_video=false&description=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在 LaTeX 中写排序宏命令对 TOKEN 排序&body=Check out this article: https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&title=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&name=在 LaTeX 中写排序宏命令对 TOKEN 排序&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html&t=在 LaTeX 中写排序宏命令对 TOKEN 排序"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    <nav>
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-right">
+    Copyright &copy; 2021 Johann Li
+    
+      &lt;<a href="mailto:me@qinka.pro">me@qinka.pro</a>&gt;
+    
+  </div>
+  
+    <div class="footer-center">
+      <a href="http://www.beian.miit.gov.cn/" target="_blank"> 晋ICP备16009329号-3 </a>
+    </div>
+  
+  
+    <div class="footer-sponor">
+      
+        <span> CDN via </span>
+      
+      <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+        <img alt="Upyun logo" src="/images/upyun-logo.png"/>
+      </a>
+    </div>
+  
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- bil -->
+
+
+    
+</body>
+</html>

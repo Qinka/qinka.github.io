@@ -1,0 +1,58 @@
+@media screen and (min-width: 768px) {
+  .content .content-bil {
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .content .content-bil {
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 479px) {
+  .content .content-bil {
+    flex-direction: column;
+  }
+}
+.article-bil-column {
+  display: inline;
+  float: left;
+}
+@media screen and (min-width: 768px) {
+  .article-bil-column {
+    width: calc(50% - 10px);
+  }
+  .article-bil-column.bil-left-column {
+    padding: 0 10px 0 0;
+  }
+  .article-bil-column.bil-right-column {
+    padding: 0 0 0 10px;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .article-bil-column {
+    width: calc(50% - 10px);
+  }
+  .article-bil-column.bil-left-column {
+    padding: 0 10px 0 0;
+  }
+  .article-bil-column.bil-right-column {
+    padding: 0 0 0 10px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .article-bil-column {
+    width: 100%;
+  }
+}
+#main {
+  width: 100%;
+}
+/* 隐藏侧边信息卡片 */
+aside#profile {
+  display: none;
+}
+/* 平铺右边文章列表栏 */
+aside#sidebar {
+  display: block;
+  width: 100%;
+}

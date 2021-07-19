@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Johann&#39;s Blog</title>
+  <icon>https://blog.qinka.pro/icon.png</icon>
+  
+  <link href="https://blog.qinka.pro/atom.xml" rel="self"/>
+  
+  <link href="https://blog.qinka.pro/"/>
+  <updated>2021-07-19T04:49:17.359Z</updated>
+  <id>https://blog.qinka.pro/</id>
+  
+  <author>
+    <name>Johann Li</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>For newbie: Index</title>
+    <link href="https://blog.qinka.pro/post/newbie/index.html"/>
+    <id>https://blog.qinka.pro/post/newbie/index.html</id>
+    <published>2021-07-19T04:49:17.355Z</published>
+    <updated>2021-07-19T04:49:17.359Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这个系列是针对实验室的萌新师弟师妹们（对，我们实验室有学妹的，欢迎其他学妹报考！）。&lt;/p&gt;
+&lt;!-- Git --&gt;
+&lt;!-- CMake --&gt;
+&lt;!-- GNU make --&gt;
+&lt;!-- CUDA/NVIDIA Driver</summary>
+        
+      
+    
+    
+    
+    <category term="for-newbie" scheme="https://blog.qinka.pro/categories/for-newbie/"/>
+    
+    
+    <category term="newbie" scheme="https://blog.qinka.pro/tags/newbie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络崩溃日志 2021-04-12</title>
+    <link href="https://blog.qinka.pro/post/net-broke-log-2021-04-12.html"/>
+    <id>https://blog.qinka.pro/post/net-broke-log-2021-04-12.html</id>
+    <published>2021-04-13T02:22:49.000Z</published>
+    <updated>2021-07-19T04:49:17.355Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;昨天白天在 MikroTik RouterOS 路由器上面配置 L2TP VPN 的时候，修改了一些参数。然后晚上回去发现上不去一些网站了，这些网站大多是国内的一些网站。最后发现是 tls 握手的时候出现了问题，然后进一步排查到了是 路由器 桥接网口的 MTU 值有问题。修正之后问题就解决了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="network" scheme="https://blog.qinka.pro/tags/network/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CUDA on ARM 1.4</title>
+    <link href="https://blog.qinka.pro/post/cuda_on_arm/1.4.html"/>
+    <id>https://blog.qinka.pro/post/cuda_on_arm/1.4.html</id>
+    <published>2020-08-28T14:33:45.000Z</published>
+    <updated>2021-07-19T04:49:17.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+&lt;p&gt;因为疫情的原因，并没有去买 RockPro64 的开发板。在这一段时间中整理了一些相关的内容。所以编号 1.x 放出来了。&lt;/p&gt;
+&lt;p&gt;这一部分更新的是 NVIDIA GPU 的驱动相关的信息。某天在帮学妹配置环境的时候，上</summary>
+        
+      
+    
+    
+    
+    <category term="cuda-on-arm" scheme="https://blog.qinka.pro/categories/cuda-on-arm/"/>
+    
+    
+    <category term="cn" scheme="https://blog.qinka.pro/tags/cn/"/>
+    
+    <category term="折腾" scheme="https://blog.qinka.pro/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="CUDA" scheme="https://blog.qinka.pro/tags/CUDA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CUDA on ARM 1.2</title>
+    <link href="https://blog.qinka.pro/post/cuda_on_arm/1.2.html"/>
+    <id>https://blog.qinka.pro/post/cuda_on_arm/1.2.html</id>
+    <published>2020-08-28T13:23:45.000Z</published>
+    <updated>2021-07-19T04:49:17.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+&lt;p&gt;因为疫情的原因，并没有去买 RockPro64 的开发板。在这一段时间中整理了一些相关的内容。所以编号 1.x 放出来了。&lt;/p&gt;
+&lt;p&gt;这一篇的内容是关于在虚拟机中折腾 aarch64 虚拟机并尝试将 NVIDIA GPU</summary>
+        
+      
+    
+    
+    
+    <category term="cuda-on-arm" scheme="https://blog.qinka.pro/categories/cuda-on-arm/"/>
+    
+    
+    <category term="cn" scheme="https://blog.qinka.pro/tags/cn/"/>
+    
+    <category term="折腾" scheme="https://blog.qinka.pro/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="CUDA" scheme="https://blog.qinka.pro/tags/CUDA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 LaTeX 中写排序宏命令对 TOKEN 排序</title>
+    <link href="https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html"/>
+    <id>https://blog.qinka.pro/post/pop-sci/sorting-in-latex.html</id>
+    <published>2020-08-25T11:08:05.000Z</published>
+    <updated>2021-07-19T04:49:17.359Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;不管你信不信， LaTeX 的宏系统是可以用来排序的。这一篇博文会讲述如何在 LaTeX 里面来进行对 &lt;code&gt;token&lt;/code&gt; 的排序。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="pop-sci" scheme="https://blog.qinka.pro/categories/pop-sci/"/>
+    
+    
+    <category term="cn" scheme="https://blog.qinka.pro/tags/cn/"/>
+    
+    <category term="编码" scheme="https://blog.qinka.pro/tags/%E7%BC%96%E7%A0%81/"/>
+    
+    <category term="排序" scheme="https://blog.qinka.pro/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>arXiv 论文上传记录</title>
+    <link href="https://blog.qinka.pro/post/writing/arxiv-upload.html"/>
+    <id>https://blog.qinka.pro/post/writing/arxiv-upload.html</id>
+    <published>2020-07-13T02:34:19.000Z</published>
+    <updated>2021-07-19T04:49:17.359Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;MeDaS 论文被退回来之后，选择了先将 MeDaS 论文上传到 arXiv 上面。这篇博文就是关于 arxiv 上传的过程中遇到的问题与解决的方法。&lt;/p&gt;
+&lt;p&gt;整个流程主要就是如下&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;注册 arxiv</summary>
+        
+      
+    
+    
+    
+    <category term="论文翻车日志" scheme="https://blog.qinka.pro/categories/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%BD%A6%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="论文翻车日志" scheme="https://blog.qinka.pro/tags/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%BD%A6%E6%97%A5%E5%BF%97/"/>
+    
+    <category term="论文" scheme="https://blog.qinka.pro/tags/%E8%AE%BA%E6%96%87/"/>
+    
+    <category term="写作" scheme="https://blog.qinka.pro/tags/%E5%86%99%E4%BD%9C/"/>
+    
+    <category term="arxiv" scheme="https://blog.qinka.pro/tags/arxiv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>强化学习 —— 指引</title>
+    <link href="https://blog.qinka.pro/post/reinforcement-learning/index.html"/>
+    <id>https://blog.qinka.pro/post/reinforcement-learning/index.html</id>
+    <published>2020-06-04T14:06:34.000Z</published>
+    <updated>2021-07-19T04:49:17.359Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;开了一个新坑，强化学习，所以这篇文章是开坑之路的篇。&lt;/p&gt;
+&lt;h2 id=&quot;学习资料&quot;&gt;学习资料&lt;/h2&gt;
+&lt;h3 id=&quot;马尔可夫&quot;&gt;马尔可夫&lt;/h3&gt;
+&lt;h3 id=&quot;强化学习&quot;&gt;强化学习&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="reinforcement learning" scheme="https://blog.qinka.pro/categories/reinforcement-learning/"/>
+    
+    
+    <category term="reinforcement learning" scheme="https://blog.qinka.pro/tags/reinforcement-learning/"/>
+    
+    <category term="note" scheme="https://blog.qinka.pro/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Review of “[2004.09666] Data Efficient and Weakly Supervised Computational Pathology on Whole Slide Images”</title>
+    <link href="https://blog.qinka.pro/post/note/weakly-supervised-pathology-alg-wsi.html"/>
+    <id>https://blog.qinka.pro/post/note/weakly-supervised-pathology-alg-wsi.html</id>
+    <published>2020-05-02T01:08:05.000Z</published>
+    <updated>2021-07-19T04:49:17.359Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;来源&quot;&gt;来源&lt;/h2&gt;
+&lt;p&gt;这篇论文来自 2020 年 4 月 arxiv 预印的一篇 &lt;a href=&quot;#Lu2020&quot;&gt;&lt;abbr title=&quot;M. Y. Lu, D. F. K. Williamson, T. Y. Chen, R. J. Chen,</summary>
+        
+      
+    
+    
+    
+    <category term="paper review" scheme="https://blog.qinka.pro/categories/paper-review/"/>
+    
+    
+    <category term="paper" scheme="https://blog.qinka.pro/tags/paper/"/>
+    
+    <category term="review" scheme="https://blog.qinka.pro/tags/review/"/>
+    
+    <category term="paper review" scheme="https://blog.qinka.pro/tags/paper-review/"/>
+    
+    <category term="pathology" scheme="https://blog.qinka.pro/tags/pathology/"/>
+    
+    <category term="wsi" scheme="https://blog.qinka.pro/tags/wsi/"/>
+    
+    <category term="weakly supervised" scheme="https://blog.qinka.pro/tags/weakly-supervised/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文翻车日志 - 1</title>
+    <link href="https://blog.qinka.pro/post/writing/1.html"/>
+    <id>https://blog.qinka.pro/post/writing/1.html</id>
+    <published>2020-04-26T09:45:34.000Z</published>
+    <updated>2021-07-19T04:49:17.359Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;这个系列是写论文中翻车,记录各种各样翻车的记录，但是我保证，我一定会再犯！&lt;/p&gt;
+&lt;p&gt;这个系列的内容可以 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="论文翻车日志" scheme="https://blog.qinka.pro/categories/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%BD%A6%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="论文翻车日志" scheme="https://blog.qinka.pro/tags/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%BD%A6%E6%97%A5%E5%BF%97/"/>
+    
+    <category term="论文" scheme="https://blog.qinka.pro/tags/%E8%AE%BA%E6%96%87/"/>
+    
+    <category term="翻车" scheme="https://blog.qinka.pro/tags/%E7%BF%BB%E8%BD%A6/"/>
+    
+    <category term="写作" scheme="https://blog.qinka.pro/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CUDA on ARM 1</title>
+    <link href="https://blog.qinka.pro/post/cuda_on_arm/1.html"/>
+    <id>https://blog.qinka.pro/post/cuda_on_arm/1.html</id>
+    <published>2020-02-29T12:02:34.000Z</published>
+    <updated>2021-07-19T04:49:17.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;动机&quot;&gt;动机&lt;/h2&gt;
+&lt;p&gt;这个系列的内容是关于在 ARM 开发板或者 ARM PC 上使用支持 CUDA 的</summary>
+        
+      
+    
+    
+    
+    <category term="cuda-on-arm" scheme="https://blog.qinka.pro/categories/cuda-on-arm/"/>
+    
+    
+    <category term="cn" scheme="https://blog.qinka.pro/tags/cn/"/>
+    
+    <category term="折腾" scheme="https://blog.qinka.pro/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="CUDA" scheme="https://blog.qinka.pro/tags/CUDA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020 年计划</title>
+    <link href="https://blog.qinka.pro/post/2020-plan.html"/>
+    <id>https://blog.qinka.pro/post/2020-plan.html</id>
+    <published>2020-01-21T01:58:35.000Z</published>
+    <updated>2021-07-19T04:49:17.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;又到了新的一年立 flag 的日志，所以现在新起一篇博客。当然至于为什么突然开始更新博客，我会在后面写下来。&lt;/p&gt;
+&lt;h1&gt;新年</summary>
+        
+      
+    
+    
+    
+    
+    <category term="cn" scheme="https://blog.qinka.pro/tags/cn/"/>
+    
+    <category term="flags" scheme="https://blog.qinka.pro/tags/flags/"/>
+    
+    <category term="plan" scheme="https://blog.qinka.pro/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenVPN 网桥模式连接家属区和实验室网络</title>
+    <link href="https://blog.qinka.pro/post/VPN-network.html"/>
+    <id>https://blog.qinka.pro/post/VPN-network.html</id>
+    <published>2019-03-17T01:59:27.000Z</published>
+    <updated>2021-07-19T04:49:17.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;打算使用 OpenVPN 把实验室和家属区的网络桥接起来。之前用 OpenVPN 的路由器的模式，实验室的网络可以通过家属区的网络走电信接入互联网。但是问题是现在想让家属区的设备也可以轻松的访问到实验室的设备，这就比较麻烦了。家属区要访问实验室就需要设置静态路由，但是</summary>
+        
+      
+    
+    
+    
+    <category term="network" scheme="https://blog.qinka.pro/categories/network/"/>
+    
+    
+    <category term="cn" scheme="https://blog.qinka.pro/tags/cn/"/>
+    
+    <category term="VPN" scheme="https://blog.qinka.pro/tags/VPN/"/>
+    
+    <category term="network" scheme="https://blog.qinka.pro/tags/network/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.qinka.pro/post/hello-world.html"/>
+    <id>https://blog.qinka.pro/post/hello-world.html</id>
+    <published>2019-03-13T06:05:34.000Z</published>
+    <updated>2021-07-19T04:49:17.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This post is a backup about Hexo, including how to use it and which plugins were installed.&lt;/p&gt;
+&lt;h2 id=&quot;Usages&quot;&gt;Usages&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

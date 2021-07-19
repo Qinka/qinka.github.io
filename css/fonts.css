@@ -1,0 +1,10 @@
+@font-face {
+  font-style: normal;
+  font-family: "JetBrains Mono";
+  src: local("JetBrains Mono"), url("../lib/jetbrain-mono/JetBrainsMono-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-style: normal;
+  font-family: "SourceHan Sans";
+  src: local("Source Han Sans SC"), url("../lib/source-han-sans/SourceHanSansCN-Regular.otf") format("opentype");
+}

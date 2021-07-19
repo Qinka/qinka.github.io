@@ -1,0 +1,18 @@
+Sitemap: https://blog.qinka.pro/sitemap.xml
+Sitemap: https://blog.qinka.pro/baidusitemap.xml
+
+User-Agent: *
+Allow: /
+Allow: /post/
+Allow: /about/
+Allow: /sponsor/
+Allow: /about/publication/
+Allow: /about/project/
+Allow: /images/
+Allow: /photo/
+
+Disallow: /css/
+Disallow: /images/3rd-part/
+Disallow: /js/
+Disallow: /lib/
+

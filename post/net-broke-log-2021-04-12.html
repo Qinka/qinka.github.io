@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="description" content="&lt;p&gt;昨天白天在 MikroTik RouterOS 路由器上面配置 L2TP VPN 的时候，修改了一些参数。然后晚上回去发现上不去一些网站了，这些网站大多是国内的一些网站。最后发现是 tls 握手的时候出现了问题，然后进一步排查到了是 路由器 桥接网口的 MTU 值有问题。修正之后问题就解决了。&lt;/p&gt;">
+    
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>网络崩溃日志 2021-04-12</title>
+    <!-- font -->
+    
+<link rel="stylesheet" href="/css/fonts.css">
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+    
+      <script data-ad-client="ca-pub-2997183197565745" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Johann's Blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/post/newbie/index.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/post/cuda_on_arm/1.4.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&text=网络崩溃日志 2021-04-12"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&is_video=false&description=网络崩溃日志 2021-04-12"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=网络崩溃日志 2021-04-12&body=Check out this article: https://blog.qinka.pro/post/net-broke-log-2021-04-12.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&name=网络崩溃日志 2021-04-12&description=&lt;p&gt;昨天白天在 MikroTik RouterOS 路由器上面配置 L2TP VPN 的时候，修改了一些参数。然后晚上回去发现上不去一些网站了，这些网站大多是国内的一些网站。最后发现是 tls 握手的时候出现了问题，然后进一步排查到了是 路由器 桥接网口的 MTU 值有问题。修正之后问题就解决了。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&t=网络崩溃日志 2021-04-12"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        网络崩溃日志 2021-04-12
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Johann Li</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-04-13T02:22:49.000Z" itemprop="datePublished">2021-04-13</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/network/" rel="tag">network</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  
+  
+  <script> const _col_hid_pre_state = undefined; </script>
+
+
+
+  <div class="content" itemprop="articleBody">
+    <p>昨天白天在 MikroTik RouterOS 路由器上面配置 L2TP VPN 的时候，修改了一些参数。然后晚上回去发现上不去一些网站了，这些网站大多是国内的一些网站。最后发现是 tls 握手的时候出现了问题，然后进一步排查到了是 路由器 桥接网口的 MTU 值有问题。修正之后问题就解决了。</p>
+<span id="more"></span>
+<ol>
+<li>
+<p>昨晚网站上不去，但是不是全部上不去。首先 微软的必应能用，然后像 IBM 的一些技术性的网站、英伟达的一些技术性的网站也是能上去的。同时知乎、简书也能上的去，就是无法加载图片。此外 CSDN、百度等一些网站是完全打不开的。所以肯定不是校园网及其外面哪一层防火墙的问题。</p>
+</li>
+<li>
+<p>然后发现一个问题，似乎都是 https 的站点上不去，因为通过终端 curl 工具，上面提到的上不去的网站通过 http 协议访问的时候就没有问题。</p>
+</li>
+<li>
+<p>然后继续用 curl 工具，添加了 <code>-v</code> 这个参数发现在执行 <code>curl https://blog.csdn.net -k -v</code> 的时候，程序总是停留在 <code>* TLSv1.2 (OUT), TLS handshake, Client hello (1):</code> 这样一句内容中，但是正常的网站，比如必应，则是会很快接着 <code>* TLSv1.2 (IN), TLS handshake, Server hello (2):</code> 这样的一个内容。也就是说，这个 TLS/SSL 相关通信的方式的握手并不能正确完成。</p>
+</li>
+<li>
+<p>因为白天配置过 L2TP/IPsec 的VPN，这个配置的过程中有一些操作，一开始觉得会影响这个握手。所以开始对所有配置进行检查。</p>
+</li>
+<li>
+<p>但是检查到一半的时候，发现，TLS/SSL 这个是在 IP/TCP 之上的，所以我路由器配置的一些 L2TP 相关的内容应该并没有关系。</p>
+</li>
+<li>
+<p>所以然后想起来对路由器的网桥还改过，当时主要改动的是 ARP 像相关的内容，然后将 ARP 相关的内容进行了复原。但是还是没有用。</p>
+</li>
+<li>
+<p>最后想起来 MTU 值被修改了。所有网口都是 1500 的大小，但是网桥被错误的修改成了 1450。修改回去之后，网络就正常。。</p>
+</li>
+<li>
+<p>看起来应该是 MTU 值得变化，导致了一些数据包被拆，然后被某些网站的服务器拦截了下来。</p>
+</li>
+<li>
+<p>最后问题解决了。</p>
+</li>
+</ol>
+
+  </div>
+
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&text=网络崩溃日志 2021-04-12"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&is_video=false&description=网络崩溃日志 2021-04-12"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=网络崩溃日志 2021-04-12&body=Check out this article: https://blog.qinka.pro/post/net-broke-log-2021-04-12.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&title=网络崩溃日志 2021-04-12"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&name=网络崩溃日志 2021-04-12&description=&lt;p&gt;昨天白天在 MikroTik RouterOS 路由器上面配置 L2TP VPN 的时候，修改了一些参数。然后晚上回去发现上不去一些网站了，这些网站大多是国内的一些网站。最后发现是 tls 握手的时候出现了问题，然后进一步排查到了是 路由器 桥接网口的 MTU 值有问题。修正之后问题就解决了。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.qinka.pro/post/net-broke-log-2021-04-12.html&t=网络崩溃日志 2021-04-12"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    <nav>
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-right">
+    Copyright &copy; 2021 Johann Li
+    
+      &lt;<a href="mailto:me@qinka.pro">me@qinka.pro</a>&gt;
+    
+  </div>
+  
+    <div class="footer-center">
+      <a href="http://www.beian.miit.gov.cn/" target="_blank"> 晋ICP备16009329号-3 </a>
+    </div>
+  
+  
+    <div class="footer-sponor">
+      
+        <span> CDN via </span>
+      
+      <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+        <img alt="Upyun logo" src="/images/upyun-logo.png"/>
+      </a>
+    </div>
+  
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- bil -->
+
+
+    
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="description" content="CUDA on ARM 1">
+    
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>CUDA on ARM 1</title>
+    <!-- font -->
+    
+<link rel="stylesheet" href="/css/fonts.css">
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+    
+      <script data-ad-client="ca-pub-2997183197565745" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Johann's Blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/post/writing/1.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/post/2020-plan.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.qinka.pro/post/cuda_on_arm/1.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&text=CUDA on ARM 1"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&is_video=false&description=CUDA on ARM 1"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CUDA on ARM 1&body=Check out this article: https://blog.qinka.pro/post/cuda_on_arm/1.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&name=CUDA on ARM 1&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.qinka.pro/post/cuda_on_arm/1.html&t=CUDA on ARM 1"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA"><span class="toc-number">1.</span> <span class="toc-text">动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81-PCIE-%E7%9A%84-ARM-%E5%BC%80%E5%8F%91%E6%9D%BF"><span class="toc-number">2.</span> <span class="toc-text">支持 PCIE 的 ARM 开发板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CUDA-on-ARM"><span class="toc-number">3.</span> <span class="toc-text">CUDA on ARM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8"><span class="toc-number">4.</span> <span class="toc-text">驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCIe-%E8%BD%AC%E6%8D%A2%E5%A4%B4"><span class="toc-number">5.</span> <span class="toc-text">PCIe 转换头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-number">6.</span> <span class="toc-text">下一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation"><span class="toc-number">7.</span> <span class="toc-text">Motivation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARM-board-with-PCIE"><span class="toc-number">8.</span> <span class="toc-text">ARM board with PCIE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CUDA-on-ARM-2"><span class="toc-number">9.</span> <span class="toc-text">CUDA on ARM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Driver"><span class="toc-number">10.</span> <span class="toc-text">Driver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCIe-Adpter"><span class="toc-number">11.</span> <span class="toc-text">PCIe Adpter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Next-Step"><span class="toc-number">12.</span> <span class="toc-text">Next Step</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CUDA on ARM 1
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Johann Li</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-02-29T12:02:34.000Z" itemprop="datePublished">2020-02-29</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/cuda-on-arm/">cuda-on-arm</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/CUDA/" rel="tag">CUDA</a>, <a class="tag-link-link" href="/tags/cn/" rel="tag">cn</a>, <a class="tag-link-link" href="/tags/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  
+  
+  <script> const _col_hid_pre_state = undefined; </script>
+
+
+
+  <div class="content content-bil" itemprop="articleBody">
+    <div class="article-bil-column bil-left-column"  id="the-l-column" style="display: none;">
+      <div id="the-l-btn"><i class="fa fa-backward" onclick="column_hidden(-1)"></i></div>
+        <h2 id="动机">动机</h2>
+<p>这个系列的内容是关于在 ARM 开发板或者 ARM PC 上使用支持 CUDA 的 GPU，并希望至少是能搭建一个可以作为编译测试的平台。写这个系列的文章是因为从目前评估来看，已经找到了一个可能的方案。</p>
+<p>这一些列文章将会是关于这个折腾的内容，不可能定期更新的。而这篇文章将简单介绍一下目前的状况。此外因为这篇文章涉及的内容全网上基本上找不到，所以写个双语的。以中文为准。</p>
+<h2 id="支持-PCIE-的-ARM-开发板">支持 PCIE 的 ARM 开发板</h2>
+<p>搜索到的支持 PCIE 的开发板都是基于 Rockchip （瑞芯） 的 RK3399。 根据官网介绍，这个芯片支持 4个 PCIe 2.1 版本的通道的。所以找到的开发板的 PCIe 接口不会超过这个性能。 当然没有支持 NVLink 的 ARM 开发板的。</p>
+<p>基于芯片这个找到了众多 ARM 开发板中，接口种类包括 PCIe 4x 的， mini PCIe 的，基于 M.2 的，和 IO 脚针的（真神奇）。</p>
+<p>支持的开发板包括：</p>
+<ul>
+<li>RockPro64</li>
+<li>FriendlyARM NanoPi and NanoPC 系列</li>
+<li>等待</li>
+</ul>
+<p>在淘宝逛了一圈，发现 RockPro64 是性价比最高的，而且是有一个完整的 PCIe 4x 插槽，并且最高支持 4G 的内存，当然价格也不贵。所以目前初步打算用这个开发板。当然我还没有打算购买开发板。</p>
+<p><a target="_blank" rel="noopener" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DWAblXmvbimwcQipKwQzePOeEDrYVVa64LKpWJ%2Bin0XLjf2vlNIV67imlzkqVRS4FZW1Lr5j6Dec%2FRCgynh0nyxPyAC0BKL8U2eVvaponJs7131pMoMgF4XAZFCFQViNVlntEOsmn00zkzhiaLWZJIK%2Fja6aCKgifo4eAIad5cw86xyQzxkcA3M9kxRRHfUqm&amp;scm=null&amp;pvid=null&amp;app_pvid=59590_33.39.135.169_589_1604067663916&amp;ptl=floorId%3A17741&amp;originalFloorId%3A17741&amp;app_pvid%3A59590_33.39.135.169_589_1604067663916&amp;union_lens=lensId%3APUB%401604067634%400b519dfe_073b_17579e1acdb_9fdc%40024v48xnEmq0udW5XmPC6uWH">RockPro64</a> 大致是这个样子 （连接时淘宝的购买连接）：</p>
+<p><a target="_blank" rel="noopener" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DWAblXmvbimwcQipKwQzePOeEDrYVVa64LKpWJ%2Bin0XLjf2vlNIV67imlzkqVRS4FZW1Lr5j6Dec%2FRCgynh0nyxPyAC0BKL8U2eVvaponJs7131pMoMgF4XAZFCFQViNVlntEOsmn00zkzhiaLWZJIK%2Fja6aCKgifo4eAIad5cw86xyQzxkcA3M9kxRRHfUqm&amp;scm=null&amp;pvid=null&amp;app_pvid=59590_33.39.135.169_589_1604067663916&amp;ptl=floorId%3A17741&amp;originalFloorId%3A17741&amp;app_pvid%3A59590_33.39.135.169_589_1604067663916&amp;union_lens=lensId%3APUB%401604067634%400b519dfe_073b_17579e1acdb_9fdc%40024v48xnEmq0udW5XmPC6uWH"><img src="https://img.alicdn.com/i1/153825722/O1CN01VVYELB1s8is0TZtk2_!!0-item_pic.jpg" alt=""></a></p>
+<h2 id="CUDA-on-ARM">CUDA on ARM</h2>
+<p>英伟达官方提供了基于 aarch64 的 CUDA 工具套件。 可以在 <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit/arm">CUDA on ARM</a> 下载到安装包。</p>
+<p>这个官方的的安装包是有驱动的，但是因为是在华为云上进行测试的，所以驱动没有安装成功。</p>
+<h2 id="驱动">驱动</h2>
+<p>CUDA on ARM 的安装包中有一个 435 版本的驱动， Linux aarch64 的。在解压了驱动中的文档之后，这个驱动的文档中是写着支持当前所有 GPU 的。（不知道实际是什么情况）。英伟达官方的意思是 Power9 架构下只支持 V100，但是在文档中照样把所有 GPU 都列出来了。</p>
+<h2 id="PCIe-转换头">PCIe 转换头</h2>
+<p>在 RockPro64 上直接插 GPU 的话，卡是可以插进去的，因为 RockPro64 上的卡槽是开放的。但是供电却是一个问题。</p>
+<p>幸好找到了一个 PCIe 4x 转 PCIe 16x 还带电源供电的玩意。 详见 <a target="_blank" rel="noopener" href="http://www.adt.link/product/R23SG.html">ADT R23SG</a>。</p>
+<h2 id="下一步">下一步</h2>
+<p>根据上面的内容，驱动有了，供电有了，下一步就可以买一个开发板然后找一个显卡试一下了。</p>
+
+    </div>
+    <div class="article-bil-column bil-right-column" id="the-r-column" style="display: none;">
+      <div id="the-r-btn"><i class="fa fa-forward"  onclick="column_hidden(1)"></i></div>
+        
+<h2 id="Motivation">Motivation</h2>
+<p>This series is about using CUDA-enabled GPUs on ARM development boards or ARM PCs. I hope a platform can be set up and used to compile and test, at least. The beginning of writing this series is because there might be a practicable plan.</p>
+<p>This series will not be updated regularly. At the same time, I can not find any information about this subjecton the Internet, so this series will be bilingual. Chinese version prevails.</p>
+<h2 id="ARM-board-with-PCIE">ARM board with PCIE</h2>
+<p>All the board I found on the Internet (via the search engine), is based on Rockchip’s RK3399. By the introduction, the RK3399 has 4 full-duplex PCIe 2.1 lanes. Therefore, dev-boards can not better than that. Of course, there is not any arm dev-board with NVLink.</p>
+<p>Based on Rockchip RK3399, I found a lot of dev-boards including the one having PCIe 4x slot, the one having mini PCIe slot, the one having M.2 slot, and the one providing PCIe via pins (amazing!).</p>
+<p>These boards include:</p>
+<ul>
+<li>RockPro64</li>
+<li>FriendlyARM NanoPi and NanoPC series</li>
+<li>etc.</li>
+</ul>
+<p>After checking the prices on <a href="taobao.com">Taobao</a>, I found RockPro64 is the best choice. It has a PCIe 4x 2.1 slot, and supports up to 4G of memory. Moreover, it’s cheap. The rough plan is to buy this board, but now, there is no decision.</p>
+<p><a target="_blank" rel="noopener" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DWAblXmvbimwcQipKwQzePOeEDrYVVa64LKpWJ%2Bin0XLjf2vlNIV67imlzkqVRS4FZW1Lr5j6Dec%2FRCgynh0nyxPyAC0BKL8U2eVvaponJs7131pMoMgF4XAZFCFQViNVlntEOsmn00zkzhiaLWZJIK%2Fja6aCKgifo4eAIad5cw86xyQzxkcA3M9kxRRHfUqm&amp;scm=null&amp;pvid=null&amp;app_pvid=59590_33.39.135.169_589_1604067663916&amp;ptl=floorId%3A17741&amp;originalFloorId%3A17741&amp;app_pvid%3A59590_33.39.135.169_589_1604067663916&amp;union_lens=lensId%3APUB%401604067634%400b519dfe_073b_17579e1acdb_9fdc%40024v48xnEmq0udW5XmPC6uWH">RockPro64</a>  is just this：</p>
+<p><a target="_blank" rel="noopener" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DWAblXmvbimwcQipKwQzePOeEDrYVVa64LKpWJ%2Bin0XLjf2vlNIV67imlzkqVRS4FZW1Lr5j6Dec%2FRCgynh0nyxPyAC0BKL8U2eVvaponJs7131pMoMgF4XAZFCFQViNVlntEOsmn00zkzhiaLWZJIK%2Fja6aCKgifo4eAIad5cw86xyQzxkcA3M9kxRRHfUqm&amp;scm=null&amp;pvid=null&amp;app_pvid=59590_33.39.135.169_589_1604067663916&amp;ptl=floorId%3A17741&amp;originalFloorId%3A17741&amp;app_pvid%3A59590_33.39.135.169_589_1604067663916&amp;union_lens=lensId%3APUB%401604067634%400b519dfe_073b_17579e1acdb_9fdc%40024v48xnEmq0udW5XmPC6uWH"><img src="https://img.alicdn.com/i1/153825722/O1CN01VVYELB1s8is0TZtk2_!!0-item_pic.jpg" alt=""></a></p>
+<h2 id="CUDA-on-ARM-2">CUDA on ARM</h2>
+<p>NVIDIA official provides CUDA toolkit based on Linux aarch64, but is not the final release. Jump to <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit/arm">CUDA on ARM</a> to download it.</p>
+<p>The official installer includes a driver installer. But I tested it on Huawei Cloud, and the driver was not successfully installed.</p>
+<h2 id="Driver">Driver</h2>
+<p>The installer of CUDA on ARM includes a driver versioned 435 for Linux aarch64. After decompressed documents in the driver, I found all the GPUs are listed in that, but I don’t know what will happen when installing it. The official note of Power9 says only Tesla V100 is supported, but the documents also listed all the GPUs.</p>
+<h2 id="PCIe-Adpter">PCIe Adpter</h2>
+<p>The GPU can be directly plugged into RockPro64, because RockPro64’s slot is open-ended. But the power supply is a big problem.</p>
+<p>Fortunately, I found a PCIe 4x to 16x adapter with a power supply. See <a target="_blank" rel="noopener" href="http://www.adt.link/product/R23SG.html">ADT R23SG</a>.</p>
+<h2 id="Next-Step">Next Step</h2>
+<p>According to the above, there are the driver and an adapter, so the next step is to buy a RockPro64 and find a GPU to test.</p>
+
+    </div>
+    
+<link rel="stylesheet" href="/css/bilingual.css">
+
+  </div>
+
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA"><span class="toc-number">1.</span> <span class="toc-text">动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81-PCIE-%E7%9A%84-ARM-%E5%BC%80%E5%8F%91%E6%9D%BF"><span class="toc-number">2.</span> <span class="toc-text">支持 PCIE 的 ARM 开发板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CUDA-on-ARM"><span class="toc-number">3.</span> <span class="toc-text">CUDA on ARM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8"><span class="toc-number">4.</span> <span class="toc-text">驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCIe-%E8%BD%AC%E6%8D%A2%E5%A4%B4"><span class="toc-number">5.</span> <span class="toc-text">PCIe 转换头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-number">6.</span> <span class="toc-text">下一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation"><span class="toc-number">7.</span> <span class="toc-text">Motivation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARM-board-with-PCIE"><span class="toc-number">8.</span> <span class="toc-text">ARM board with PCIE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CUDA-on-ARM-2"><span class="toc-number">9.</span> <span class="toc-text">CUDA on ARM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Driver"><span class="toc-number">10.</span> <span class="toc-text">Driver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCIe-Adpter"><span class="toc-number">11.</span> <span class="toc-text">PCIe Adpter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Next-Step"><span class="toc-number">12.</span> <span class="toc-text">Next Step</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.qinka.pro/post/cuda_on_arm/1.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&text=CUDA on ARM 1"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&is_video=false&description=CUDA on ARM 1"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CUDA on ARM 1&body=Check out this article: https://blog.qinka.pro/post/cuda_on_arm/1.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&title=CUDA on ARM 1"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.qinka.pro/post/cuda_on_arm/1.html&name=CUDA on ARM 1&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.qinka.pro/post/cuda_on_arm/1.html&t=CUDA on ARM 1"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    <nav>
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/sponsor/">赞助者</a></li>
+        
+          <li><a href="/about/publication/">出版物</a></li>
+        
+          <li><a href="/about/project/">项目</a></li>
+        
+          <li><a href="/photo/">摄影</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-right">
+    Copyright &copy; 2021 Johann Li
+    
+      &lt;<a href="mailto:me@qinka.pro">me@qinka.pro</a>&gt;
+    
+  </div>
+  
+    <div class="footer-center">
+      <a href="http://www.beian.miit.gov.cn/" target="_blank"> 晋ICP备16009329号-3 </a>
+    </div>
+  
+  
+    <div class="footer-sponor">
+      
+        <span> CDN via </span>
+      
+      <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+        <img alt="Upyun logo" src="/images/upyun-logo.png"/>
+      </a>
+    </div>
+  
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- bil -->
+
+  
+<script src="/js/bilingual.js"></script>
+
+
+
+    
+</body>
+</html>
